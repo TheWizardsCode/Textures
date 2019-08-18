@@ -10,6 +10,20 @@ The goal of this project is not to provide AAA quality assets but instead provid
   2. Open the `OpenSourceModels/Scenes/TexturesCatalog` scene
   3. Use the UI to filter the available models and select one for display (when viewing materials you can view the matieral in more detail by flipping to an inspector view with the 'F' key)
   4. When you find a model you like it will have been pinged in the Project view - go ahead and use it in your project as you would use any other model - but without license restrictions (see `NOTICE File` below)
+  
+## Installing Via Package Manager
+
+Modify your manifest.json file found at /PROJECTNAME/Packages/manifest.json by including the following line
+
+```json
+{
+	"dependencies": {
+		...
+		"org.3dtbd.textures": "https://github.com/3dtbd/Textures.git#release/stable",
+		...
+  }
+}
+```
 
 ## NOTICE file
 
@@ -32,4 +46,22 @@ We welcome contributions of new models and integrations of these models into oth
 FIXME: Contribution guide
 FIXME: Reference to Discord
 
+# Releasing
 
+We use [Jeff Campbell's Unity Package Tools](https://github.com/jeffcampbellmakesgames/unity-package-tools) to help with building releases. Install these tools from the release package on GitHub (we don't install via package manager as we don't want them to be installed as a dependency of our projects).
+
+[Full usage instructions](https://github.com/jeffcampbellmakesgames/unity-package-tools/blob/master/usage.md) are available, the below is a summary for convenience.
+
+  1. Update the Package Version Number
+  2. Review all other settings
+  3. Click Export Package
+  4. In bash, in the export directory run the following commands:
+  
+  ```bash
+  git init
+  git remote add origin git@github.com:3dtbd/Textures.git
+  git checkout --orphan release/stable
+  git add .
+  git commit -m "Release vx.y.z"
+  git push origin release/stable
+  ```

@@ -32,6 +32,8 @@ ExportedObj/
 ProjectSettings
 sysinfo.txt
 Logs
+Assets/Generated
+Assets/Generated.meta
 
 
 # Builds
@@ -59,3 +61,7 @@ Assets/GeNa.meta
 # Unity Multipurpose Avatar
 Assets/UMA
 Assets/UMA.meta
+
+# Unity Package Tools
+Assets/JCMG
+Assets/JCMG.meta
