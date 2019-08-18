@@ -30,7 +30,7 @@ namespace WizardsCode.Texture
             sceneManager = FindObjectOfType<SceneManager>();
         }
 
-        internal void Initialize()
+        internal void InitData()
         {
             PlantMetaData[] data = FindAllPlants();
             foreach (PlantMetaData plant in data)

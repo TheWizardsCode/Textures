@@ -18,7 +18,6 @@ namespace WizardsCode.Materials
         public Dropdown CategoryDropdown;
         public Dropdown MaterialDropdown;
 
-
         private SceneManager sceneManager;
 
         Material currentMaterial;
@@ -30,7 +29,17 @@ namespace WizardsCode.Materials
             sceneManager = FindObjectOfType<SceneManager>();
         }
 
-        internal void Initialize()
+        internal string ProjectFolder
+        {
+            get
+            {
+                string folder = AssetDatabase.GetAssetPath(MonoScript.FromMonoBehaviour(this));
+                folder = folder.Substring(0, folder.IndexOf("/Scripts/"));
+                return folder;
+            }
+        }
+
+        internal void InitData()
         {
             MaterialMetaData[] data = FindAllMaterials();
             foreach (MaterialMetaData material in data)
@@ -100,7 +109,7 @@ namespace WizardsCode.Materials
         {
             List<MaterialMetaData> metaData = new List<MaterialMetaData>();
 
-            string[] prefabGUIDs = AssetDatabase.FindAssets("t:material", new[] { "Assets/OpenSourceTextures" });
+            string[] prefabGUIDs = AssetDatabase.FindAssets("t:material", new[] { ProjectFolder });
             foreach (string guid in prefabGUIDs)
             {
                 string assetPath = AssetDatabase.GUIDToAssetPath(guid);

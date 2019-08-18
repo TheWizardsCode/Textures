@@ -38,6 +38,8 @@ namespace wizardscode.utility.textures
         private void Start()
         {
             SetSelectionType();
+            materialDatabase.InitData();
+            plantDatabase.InitData();
         }
 
         public void SetSelectionType()
@@ -49,7 +51,6 @@ namespace wizardscode.utility.textures
                 plantDatabase.texturePanel.gameObject.SetActive(false);
                 materialDatabase.CategoryDropdown.gameObject.SetActive(true);
                 materialDatabase.MaterialDropdown.gameObject.SetActive(true);
-                materialDatabase.Initialize();
             }
             else
             {
@@ -58,7 +59,6 @@ namespace wizardscode.utility.textures
                 plantDatabase.CategoryDropdown.gameObject.SetActive(true);
                 plantDatabase.PlantDropdown.gameObject.SetActive(true);
                 plantDatabase.texturePanel.gameObject.SetActive(true);
-                plantDatabase.Initialize();
             }
         }
 
