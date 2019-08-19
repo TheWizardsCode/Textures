@@ -12,12 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a29f67b488b4458983fd973bbda8c8fa, type: 3}
   m_Name: PackageManifestConfig
   m_EditorClassIdentifier: 
-  packageSourcePaths: []
+  packageSourcePaths:
+  - Assets/OpenSourceTextures
   packageIgnorePaths: []
   packageDestinationPath: ../../exports/3dtbd/Textures
   packageName: org.3dtbd.textures
   displayName: Open Source Textures
-  packageVersion: 0.0.1
+  packageVersion: 0.0.4
   unityVersion: 2018.4
   description: Free (as in speech and beer) textures for you to use in your game with
     no restrictins on reuse or redistribution.
