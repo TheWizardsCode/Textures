@@ -8,8 +8,8 @@ namespace WizardsCode.Controller
 
         /*
             WASD/Arrows:    Movement
-                      Q:    Climb
-                      E:    Drop
+                      Q:    Drop
+                      E:    Climb
                   Shift:    Move faster
                 Control:    Move slower
             RMB + Mouse:    Rotate camera
@@ -76,8 +76,8 @@ namespace WizardsCode.Controller
                 pos += transform.right * normalMoveSpeed * Input.GetAxis("Horizontal") * Time.deltaTime;
             }
 
-            if (Input.GetKey(KeyCode.Q)) { pos += transform.up * climbSpeed * Time.deltaTime; }
-            if (Input.GetKey(KeyCode.E)) { pos -= transform.up * climbSpeed * Time.deltaTime; }
+            if (Input.GetKey(KeyCode.E)) { pos += transform.up * climbSpeed * Time.deltaTime; }
+            if (Input.GetKey(KeyCode.Q)) { pos -= transform.up * climbSpeed * Time.deltaTime; }
 
             RaycastHit hit;
             Vector3 direction;
@@ -97,7 +97,10 @@ namespace WizardsCode.Controller
 
         internal void ResetRotation()
         {
-            transform.LookAt(lookAt.transform);
+            if (lookAt != null)
+            {
+                transform.LookAt(lookAt.transform);
+            }
             rotationX = this.transform.eulerAngles.y;
             rotationY = -this.transform.eulerAngles.x;
         }
